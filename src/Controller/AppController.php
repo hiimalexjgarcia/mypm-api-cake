@@ -54,7 +54,8 @@ class AppController extends Controller
                 'Crud.Edit'
             ],
             'listeners'=> [
-                'Crud.Search'
+                'Crud.Search',
+                'CrudJsonApi.JsonApi'
             ]
         ]);
 
