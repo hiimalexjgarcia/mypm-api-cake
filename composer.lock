@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "37e377b401acb422a7c7c71eb7db654e",
+    "content-hash": "9a0f9d7028cd5987828d5f5b9a924128",
     "packages": [
         {
             "name": "aura/intl",
@@ -363,6 +363,59 @@
                 "update"
             ],
             "time": "2017-05-02T20:54:55+00:00"
+        },
+        {
+            "name": "friendsofcake/search",
+            "version": "4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfCake/search.git",
+                "reference": "7b3c792511edc51589a40a37bbe0031263a48ef2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfCake/search/zipball/7b3c792511edc51589a40a37bbe0031263a48ef2",
+                "reference": "7b3c792511edc51589a40a37bbe0031263a48ef2",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "^3.4"
+            },
+            "require-dev": {
+                "friendsofcake/cakephp-test-utilities": "dev-master",
+                "phpunit/phpunit": "<6.0"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "Search\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Winther",
+                    "homepage": "http://cakephp.nu/",
+                    "role": "Author"
+                },
+                {
+                    "name": "ADmad",
+                    "homepage": "https://github.com/admad",
+                    "role": "Contributor"
+                }
+            ],
+            "description": "CakePHP Search plugin using PRG pattern",
+            "homepage": "https://github.com/FriendsOfCake/search",
+            "keywords": [
+                "cake3",
+                "cakephp",
+                "cakephp3",
+                "search"
+            ],
+            "time": "2017-11-25T16:58:52+00:00"
         },
         {
             "name": "josegonzalez/dotenv",

@@ -51,7 +51,11 @@ class AppController extends Controller
                 'Crud.Index',
                 'Crud.View',
                 'Crud.Delete',
-                'Crud.Edit'            ]
+                'Crud.Edit'
+            ],
+            'listeners'=> [
+                'Crud.Search'
+            ]
         ]);
 
         /*
