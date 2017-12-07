@@ -27,6 +27,7 @@ use Cake\Event\Event;
  */
 class AppController extends Controller
 {
+    use \Crud\Controller\ControllerTrait;
 
     /**
      * Initialization hook method.
@@ -43,6 +44,15 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+
+
+        $this->loadComponent('Crud.Crud', [
+            'actions' => [
+                'Crud.Index',
+                'Crud.View',
+                'Crud.Delete',
+                'Crud.Edit'            ]
+        ]);
 
         /*
          * Enable the following components for recommended CakePHP security settings.
