@@ -18,7 +18,15 @@ class ProjectsSeed extends AbstractSeed
      */
     public function run()
     {
-        $data = [];
+        $data = [
+            [
+                'id' => '1',
+                'title' => 'Default Project',
+                'description' => NULL,
+                'created' => '2017-12-09 02:51:26',
+                'modified' => '2017-12-09 02:51:26',
+            ],
+        ];
 
         $table = $this->table('projects');
         $table->insert($data)->save();

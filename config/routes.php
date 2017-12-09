@@ -44,7 +44,8 @@ use Cake\Routing\Route\DashedRoute;
 Router::defaultRouteClass(DashedRoute::class);
 
 const API_RESOURCES = [
-    'Projects'
+    'Projects',
+    'Tasks'
 ];
 
 Router::prefix('api', function ($routes) {

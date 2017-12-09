@@ -1,7 +1,7 @@
 <?php
 use Migrations\AbstractMigration;
 
-class CreateProjects extends AbstractMigration
+class CreateTasks extends AbstractMigration
 {
     /**
      * Change Method.
@@ -12,7 +12,7 @@ class CreateProjects extends AbstractMigration
      */
     public function change()
     {
-        $table = $this->table('projects');
+        $table = $this->table('tasks');
         $table->addColumn('title', 'string', [
             'default' => null,
             'limit' => 255,
@@ -22,6 +22,21 @@ class CreateProjects extends AbstractMigration
             'default' => null,
             'null' => true,
         ]);
+        $table->addColumn('complete', 'boolean', [
+            'default' => false,
+            'null' => true,
+        ]);
+        $table->addColumn('project_id', 'integer', [
+            'default' => null,
+            'limit' => 11,
+            'null' => false,
+        ])->addIndex([
+            'project_id'
+        ])->addForeignKey(
+            'project_id',
+            'projects',
+            'id'
+        );
         $table->addColumn('created', 'datetime', [
             'default' => null,
             'null' => false,

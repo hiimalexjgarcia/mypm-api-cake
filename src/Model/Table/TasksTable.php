@@ -7,21 +7,21 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Projects Model
+ * Tasks Model
  *
- * @property \App\Model\Table\TasksTable|\Cake\ORM\Association\HasMany $Tasks
+ * @property \App\Model\Table\ProjectsTable|\Cake\ORM\Association\BelongsTo $Projects
  *
- * @method \App\Model\Entity\Project get($primaryKey, $options = [])
- * @method \App\Model\Entity\Project newEntity($data = null, array $options = [])
- * @method \App\Model\Entity\Project[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\Project|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Project patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\Project[] patchEntities($entities, array $data, array $options = [])
- * @method \App\Model\Entity\Project findOrCreate($search, callable $callback = null, $options = [])
+ * @method \App\Model\Entity\Task get($primaryKey, $options = [])
+ * @method \App\Model\Entity\Task newEntity($data = null, array $options = [])
+ * @method \App\Model\Entity\Task[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\Task|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Task patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\Task[] patchEntities($entities, array $data, array $options = [])
+ * @method \App\Model\Entity\Task findOrCreate($search, callable $callback = null, $options = [])
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
-class ProjectsTable extends Table
+class TasksTable extends Table
 {
 
     /**
@@ -34,15 +34,16 @@ class ProjectsTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('projects');
+        $this->setTable('tasks');
         $this->setDisplayField('title');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
         $this->addBehavior('Search.Search');
 
-        $this->hasMany('Tasks', [
-            'foreignKey' => 'project_id'
+        $this->belongsTo('Projects', [
+            'foreignKey' => 'project_id',
+            'joinType' => 'INNER'
         ]);
     }
 
@@ -61,6 +62,9 @@ class ProjectsTable extends Table
                 'wildcardAny' => '*',
                 'wildcardOne' => '?',
                 'field' => ['title', 'description']
+            ])
+            ->add('complete', 'Search.Boolean', [
+                'field' => ['complete']
             ]);
         return $searchManager;
     }
@@ -87,6 +91,24 @@ class ProjectsTable extends Table
             ->scalar('description')
             ->allowEmpty('description');
 
+        $validator
+            ->boolean('complete')
+            ->allowEmpty('complete');
+
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->existsIn(['project_id'], 'Projects'));
+
+        return $rules;
     }
 }

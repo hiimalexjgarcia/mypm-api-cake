@@ -4,17 +4,19 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Project Entity
+ * Task Entity
  *
  * @property int $id
  * @property string $title
  * @property string $description
+ * @property bool $complete
+ * @property int $project_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Task[] $tasks
+ * @property \App\Model\Entity\Project $project
  */
-class Project extends Entity
+class Task extends Entity
 {
 
     /**
@@ -29,8 +31,10 @@ class Project extends Entity
     protected $_accessible = [
         'title' => true,
         'description' => true,
+        'complete' => true,
+        'project_id' => true,
         'created' => true,
         'modified' => true,
-        'tasks' => true
+        'project' => true
     ];
 }
