@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+export APP_NAME="mypm"
+export DEBUG="true"
+export APP_ENCODING="UTF-8"
+export APP_DEFAULT_LOCALE="en_US"
+export SECURITY_SALT="77a73ac88eaf1cbea1a8f9b9f00ab8c933c33b53adcec42218e0c95594d96f00"
+export CACHE_DURATION="+2 minutes"
+export CACHE_DEFAULT_URL="file://./tmp/cache/?prefix=${APP_NAME}_default&duration=${CACHE_DURATION}"
+export CACHE_CAKECORE_URL="file://./tmp/cache/persistent?prefix=${APP_NAME}_cake_core&serialize=true&duration=${CACHE_DURATION}"
+export CACHE_CAKEMODEL_URL="file://./tmp/cache/models?prefix=${APP_NAME}_cake_model&serialize=true&duration=${CACHE_DURATION}"
+export DATABASE_URL="mysql://root:root@mariadb.docker/${APP_NAME}?encoding=utf8&timezone=UTC&cacheMetadata=true&quoteIdentifiers=false&persistent=false"
+export DATABASE_TEST_URL="mysql://root:root@mariadb.docker/test_${APP_NAME}?encoding=utf8&timezone=UTC&cacheMetadata=true&quoteIdentifiers=false&persistent=false"
+bin/cake "$@"
