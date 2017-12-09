@@ -43,7 +43,16 @@ use Cake\Routing\Route\DashedRoute;
  */
 Router::defaultRouteClass(DashedRoute::class);
 
+const API_RESOURCES = [
+    'Projects'
+];
+
 Router::prefix('api', function ($routes) {
+    foreach (API_RESOURCES as $apiResource) {
+        $routes->resources($apiResource, [
+            'inflect' => 'dasherize'
+        ]);
+    }
 });
 
 Router::scope('/', function (RouteBuilder $routes) {
