@@ -1,6 +1,6 @@
 # MyPM API Service
 
-This is a super basic project management system, accommodating projects and simple tasks, and that's all at the moment. It's implemented in [CakePHP](https://github.com/cakephp), utilizing the [Friends Of Cake](https://github.com/friendsofcake) plugins friendsofcake/crud, friendsofcake/crud-json-api, and friendsofcake/search. A MySQL database server is required.
+This is a super basic project management system, accommodating projects and simple tasks, and that's all at the moment. It's implemented in [CakePHP](https://github.com/cakephp), utilizing the [Friends Of Cake](https://github.com/friendsofcake) plugins friendsofcake/crud, friendsofcake/crud-json-api for [JSON API](http://jsonapi.org/) support, and friendsofcake/search. A MySQL database server is required.
 
 ## Installation
 
