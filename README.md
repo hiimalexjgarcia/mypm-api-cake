@@ -45,7 +45,7 @@ You should see the service available at http://localhost:6785.
 
 To get a list of projects:
 ```bash
-curl -H "Accept: applicatio/vnd.api+json" "http://localhost:8765/api/projects"
+curl -H "Accept: application/vnd.api+json" "http://localhost:8765/api/projects"
 ```
 ```
 {
@@ -69,7 +69,7 @@ curl -H "Accept: applicatio/vnd.api+json" "http://localhost:8765/api/projects"
 
 Likewise, to get a list of tasks:
 ```bash
-curl -H "Accept: applicatio/vnd.api+json" "http://localhost:8765/api/tasks"
+curl -H "Accept: application/vnd.api+json" "http://localhost:8765/api/tasks"
 ```
 ```
 {
@@ -93,7 +93,7 @@ curl -H "Accept: applicatio/vnd.api+json" "http://localhost:8765/api/tasks"
 
 To get all tasks for a project:
 ```bash
-curl -H "Accept: applicatio/vnd.api+json" "http://localhost:8765/api/tasks?project_id=1"
+curl -H "Accept: application/vnd.api+json" "http://localhost:8765/api/tasks?project_id=1"
 ```
 ```
 {
@@ -118,7 +118,7 @@ curl -H "Accept: applicatio/vnd.api+json" "http://localhost:8765/api/tasks?proje
 
 To get a specific task with associated project:
 ```bash
-curl -H "Accept: applicatio/vnd.api+json" "http://localhost:8765/api/tasks/1?include=projects"
+curl -H "Accept: application/vnd.api+json" "http://localhost:8765/api/tasks/1?include=projects"
 ```
 ```
 {
