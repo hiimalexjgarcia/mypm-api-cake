@@ -54,7 +54,7 @@ class TasksTable extends Table
     {
         $searchManager = $this->behaviors()->Search->searchManager();
         $searchManager
-            ->add('q', 'Search.Like', [
+            ->add('filter', 'Search.Like', [
                 'before' => true,
                 'after' => true,
                 'fieldMode' => 'OR',
@@ -63,9 +63,32 @@ class TasksTable extends Table
                 'wildcardOne' => '?',
                 'field' => ['title', 'description']
             ])
-            ->add('complete', 'Search.Boolean', [
+            ->add('filter.title', 'Search.Like', [
+                'before' => true,
+                'after' => true,
+                'fieldMode' => 'OR',
+                'comparison' => 'LIKE',
+                'wildcardAny' => '*',
+                'wildcardOne' => '?',
+                'field' => ['title']
+            ])
+            ->add('filter.description', 'Search.Like', [
+                'before' => true,
+                'after' => true,
+                'fieldMode' => 'OR',
+                'comparison' => 'LIKE',
+                'wildcardAny' => '*',
+                'wildcardOne' => '?',
+                'field' => ['description']
+            ])
+            ->add('filter.complete', 'Search.Boolean', [
                 'field' => ['complete']
-            ]);
+            ])
+            ->value('filter.projects', [
+                'multiValue' => true,
+                'field' => ['project_id']
+            ])
+            ;
         return $searchManager;
     }
 

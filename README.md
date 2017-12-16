@@ -93,7 +93,32 @@ curl -H "Accept: application/vnd.api+json" "http://localhost:8765/api/tasks"
 
 To get all tasks for a project:
 ```bash
-curl -H "Accept: application/vnd.api+json" "http://localhost:8765/api/tasks?project_id=1"
+curl -H "Accept: application/vnd.api+json" "http://localhost:8765/api/tasks?filter[projects]=1"
+```
+```
+{
+    "data": [
+        {
+            "type": "tasks",
+            "id": "1",
+            "attributes": {
+                "title": "Do something.",
+                "description": "Do something. Anything.",
+                "complete": false,
+                "created": "2017-12-09T06:11:54+00:00",
+                "modified": "2017-12-09T06:11:54+00:00"
+            },
+            "links": {
+                "self": "/api/tasks/1"
+            }
+        }
+    ]
+}
+```
+
+To get all incomplete tasks for a project:
+```bash
+curl -g -s -H "Accept: applcation/vnd.api+json" "http://localhost:8765/api/tasks?filter[projects]=1&filter[complete]=false"
 ```
 ```
 {
@@ -165,4 +190,4 @@ curl -H "Accept: application/vnd.api+json" "http://localhost:8765/api/tasks/1?in
 }
 ```
 
-(to be continued)
+(more examples to come...)
