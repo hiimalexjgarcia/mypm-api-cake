@@ -35,11 +35,11 @@ bin/cake migrations seed
 ```
 6. Run the local development server:
 ```bash
-bin/cake server -H 0.0.0.0 # to make the service available on all local IPs
+bin/cake server
 ```
 (I've included a BASH script in the root directory, "cake" that does these exports for now. Edit it and run it ala `./cake migrations migrate`.)
 
-You should see the service available at http://localhost:6785.
+You should see the service available at http://localhost:8765.
 
 ## Usage
 
